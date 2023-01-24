@@ -1,0 +1,98 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>REPORT</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="center"
+        />
+      </a>
+    </mat-toolbar>
+
+
+    <!-- Add Content Here -->
+    <div class="card">
+
+        <div class="card">
+          <table>
+            <div class="container1">
+              <div class="row">
+                <th class="gcDetails">
+                  GC NO. &nbsp; {{gcDetails.gcType}} {{ gcDetails.gcNumber }}
+                </th>
+
+                <th class="gcDetails">NAME &nbsp;{{ gcDetails.name }}</th>
+
+                <th class="gcDetails">BILL CO &nbsp; bill</th>
+
+                <div class="gcDetails1">
+                  <th class="gcDetails">
+                    COUNTRY &nbsp; {{ gcDetails.country }}
+                  </th>
+
+                  <th class="gcDetails row">
+                    STATUS &nbsp; {{ gcDetails.status }}
+                  </th>
+                </div>
+              </div>
+            </div>
+          </table>
+        </div>
+        <table class="table table-borderless table-hover">
+          <thead class="thead-light">
+            <tr class="col-md-12">
+              <th class="table-light">DATE</th>
+              <th class="table-light">BILL NO/DETAILS</th>
+              <th class="table-light">RECEIPT</th>
+              <th class="table-light">EXPENDITURE</th>
+            </tr>
+          </thead>
+        <tbody style="border-top: solid; border-bottom: solid">
+          <tr *ngFor="let Report of Report | paginate : { itemsPerPage: 50, currentPage: p }">
+            <td class="col-sm-4">{{ Report.date }}</td>
+            <td class="col-sm-4">{{ Report.billNoDetails }}</td>
+            <td class="col-sm-4">{{ Report.amount }}</td>
+            <td class="col-sm-4">{{ Report.ExpenditureAmount }}</td>
+          </tr>
+        </tbody>
+        <th>Total Records </th>
+        <th style="position: absolute; left: 65em">End Of Report</th>
+      </table>
+      <td>TOTAL RECEIPT :-{{totalReceipt}}</td>
+      <td>TOTAL EXPENDITURE :- {{totalExpenditure}}</td>
+      <td>TOTAL BALANCE {{totalReceipt - totalExpenditure}}</td>
+    </div>
+
+      <div class="d-flex justify-content-center">
+     <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+     <button class="btn btn-outline-primary btn-group-lg"
+
+     [useExistingCss]="true"
+     printSectionId="print-section"
+     ngxPrint>print</button>
+
+      </div>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

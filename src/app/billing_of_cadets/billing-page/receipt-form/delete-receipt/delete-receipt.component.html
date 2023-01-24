@@ -1,0 +1,169 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>BILLING</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="d-inline-block align-text-center"
+        />
+      </a>
+      <div class="back_icon">
+        <button
+          class="backIcon"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          [routerLink]="['/billingPage']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon aria-label="Side nav toggle icon"
+            ><span class="material-icons">arrow_back</span></mat-icon
+          >
+        </button>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!---     buttons-->
+    <div class="row-5">
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/receiptForm']"
+        routerLinkActive="active"
+      >
+        RECEIPT FORM
+      </button>
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/viewReceipt']"
+        routerLinkActive="active"
+      >
+        VIEW RECEIPT
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-light btn-lg m-4"
+        [routerLink]="['/copyReceipt']"
+        routerLinkActive="active"
+      >
+        COPY RECEIPT
+      </button>
+      <!-- <button type="button" class="btn btn-light btn-lg m-4">
+        ADVANCED FILTER
+      </button> -->
+      <button
+      type="button"
+      class="btn btn-light btn-lg m-4"
+      [routerLink]="['/deleteReceipt']"
+      routerLinkActive="active"
+    >
+      DELETE RECEIPT
+    </button>
+  </div>
+
+
+    <!------end-->
+
+    <div class="card">
+      <div class="card-heading">
+        <div class="text-center">DELETE RECEIPT</div>
+      </div>
+
+      <form [formGroup]="DeleteReceiptForm">
+        <div class="card-body">
+          <div class="mb-2 row">
+            <label class="col-sm-3 col-form-label" for="gcType"
+              >STARTING G.C NO.</label
+            >
+            <div class="col-sm-6">
+              <select name="gcType" id="gcType" formControlName="startingGcType">
+                <option value="A/">A/</option>
+                <option value="D/">D/</option>
+                <option value="T/">T/</option>
+                <option value="TES/">TES/</option>
+                <option value="SCO/">SCO/</option>
+                <option value="U/">U/</option>
+                <option value="N/">N/</option>
+                <option value="SR/">SR/</option>
+              </select>
+
+              <div class="row-sm-12">
+                <input type="text" class="form-control" ngModle name="gc No."  formControlName="startingGcNumber" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-2 row">
+            <label class="col-sm-3 col-form-label" for="gcType"
+              >ENDING G.C NO.</label
+            >
+            <div class="col-sm-6">
+              <select name="gcType" id="gcType" formControlName="endingGcType">
+                <option value="A/">A/</option>
+                <option value="D/">D/</option>
+                <option value="T/">T/</option>
+                <option value="TES/">TES/</option>
+                <option value="SCO/">SCO/</option>
+                <option value="U/">U/</option>
+                <option value="N/">N/</option>
+                <option value="SR/">SR/</option>
+              </select>
+
+              <div class="row-sm-12">
+                <input type="text" class="form-control" ngModle name="gc No." formControlName="endingGcNumber" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-2-row">
+            <div class="mb-2 row">
+              <label for="name" class="col-sm-3 col-form-label"
+                >BILL NO/DETAILS</label
+              >
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ngModle name="name" formControlName="deleteBillNoDetails" />
+              </div>
+            </div>
+          </div>
+
+          <div class="text-lg-center">
+            <button
+              type="submit"
+              class="btn btn-primary m-md-2 btn-center btn-lg"
+              (click)="onSubmit()"
+            >
+              OK
+            </button>
+            <button
+              type="reset"
+              class="btn btn-primary m-md-2 btn-center btn-lg"
+            >
+              CANCEL
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

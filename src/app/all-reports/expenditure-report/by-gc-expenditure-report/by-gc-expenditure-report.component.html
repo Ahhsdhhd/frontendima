@@ -1,0 +1,137 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button [routerLink]="['/menu']"
+        routerLinkActive="active">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>REPORT</h3>
+      </div>
+      <a class="icon">
+        <img src="../../assets/images/ima logo.avif" alt="" width="50" height="50" class="center">
+
+      </a>
+      <div class="back_icon">
+        <button
+          class="backIcon"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          [routerLink]="['/AllReports']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon aria-label="Side nav toggle icon"
+            ><span class="material-icons">arrow_back</span></mat-icon
+          >
+        </button>
+      </div>
+
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!---     buttons-->
+    <div class="col-12">
+
+
+      <button
+      type="button"
+      class="btn btn-light btn-lg m-4"
+      [routerLink]="['/allExpenditure']"
+      routerLinkActive="active"
+    >
+      ALL GC
+    </button>
+
+
+
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1"
+          aria-expanded="false">
+         SEARCH
+        </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li><a ngbDropdownItem [routerLink]="['/expenditureReport']" routerLinkActive="active">BY GC </a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byBattalionExpenditure']" routerLinkActive="active">BY BATTALIONS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byCountryExpenditure']" routerLinkActive="active">BY COMPANY</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byPrefixExpenditure']" routerLinkActive="active">BY PREFIX</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byStatusExpenditure']" routerLinkActive="active">BY STATUS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/foreingnerExpenditure']" routerLinkActive="active">FOREINGNER</a></li>
+
+        </ul>
+      </div>
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1"
+          aria-expanded="false">
+          EXPENDITURE REPORT
+        </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li><a ngbDropdownItem [routerLink]="['/byDateExpenditure']" routerLinkActive="active">BY DATE</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byMonthExpenditure']" routerLinkActive="active">BY MONTH</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byBillNoDetailsExpenditure']" routerLinkActive="active">BY BILL NO/DETAILS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/byAmountExpenditure']" routerLinkActive="active">BY AMOUNT</a></li>
+
+        </ul>
+      </div>
+
+
+    </div>
+
+
+    <div class="card">
+      <div class="card-heading">
+        <div class="text-center">
+          SEARCH BY PREFIX
+        </div>
+      </div>
+      <form [formGroup]=" SearchGcType">
+        <div class="card-body">
+
+
+          <div class="pb-2 row">
+            <label class="col-sm-3 col-form-label" for="gcType">PREFIX</label>
+            <div class="col-sm-6">
+              <select name="gcType" id="gcType" #gcType (keyup)="getValue(gcType.value)" formControlName="gcType">
+                <option value="A/">A/</option>
+                <option value="D/">D/</option>
+                <option value="T/">T/</option>
+                <option value="TES/">TES/</option>
+                <option value="SCO/">SCO/</option>
+                <option value="U/">U/</option>
+                <option value="N/">N/</option>
+                <option value="SR/">SR/</option>
+              </select>
+
+
+            </div>
+          </div>
+
+
+          <div class="text-lg-center">
+
+            <button type="submit" class="btn btn-primary m-md-2  btn-center btn-lg"
+            [routerLink]="['/byPrefixExpenditure/' + gcType.value]" routerLinkActive="router-link-active"
+              >OK</button>
+            <button type="reset" class="btn btn-primary m-md-2  btn-center btn-lg">CANCEL</button>
+
+
+
+
+          </div>
+
+
+
+
+
+        </div>
+      </form>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

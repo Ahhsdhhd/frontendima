@@ -1,0 +1,158 @@
+.mat-drawer-content{
+
+  background-color: white;
+
+  /* background-image: url(/assets/images/watermark.avif) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.2; */
+
+
+}
+/* printer */
+* {
+  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
+                 /* Firefox 48 – 96 */
+  print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+}
+
+.back_icon{
+  margin-left: 30em;
+
+  }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  background-image: url(/assets/images/watermark3.png) !important;
+
+  background-repeat: no-repeat;
+  background-position:center;
+  background-size: 100px;
+  width: 100%;
+  height: 100%
+}
+#table th{
+ border-bottom: solid;
+ text-align: center;
+
+}
+
+td {
+  font-size: 5mm;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  overflow: auto;
+  white-space: nowrap;
+  color: black;
+
+}
+
+
+.t1 {border-top: 0.1mm solid}
+.b1 {border-bottom: 0.1mm solid}
+.l1 {border-left: 0.1mm solid}
+.r1 {border-right: 0.1mm solid}
+
+.t2 {border-top: 0.2mm solid}
+.b2 {border-bottom: 0.2mm solid}
+.l2 {border-left: 0.2mm solid}
+.r2 {border-right: 0.2mm solid}
+
+.t3 {border-top: 0.3mm solid}
+.b3 {border-bottom: 0.3mm solid}
+.l3 {border-left: 0.3mm solid}
+.r3 {border-right: 0.3mm solid}
+
+.t4 {border-top: 0.4mm solid}
+.b4 {border-bottom: 0.4mm solid}
+.l4 {border-left: 0.4mm solid}
+.r4 {border-right: 0.4mm solid}
+
+.t5 {border-top: 0.5mm solid}
+.b5 {border-bottom: 0.5mm solid}
+.l5 {border-left: 0.5mm solid}
+.r5 {border-right: 0.5mm solid}
+
+.t6 {border-top: 0.6mm solid}
+.b6 {border-bottom: 0.6mm solid}
+.l6 {border-left: 0.6mm solid}
+.r6 {border-right: 0.6mm solid}
+
+.t7 {border-top: 0.7mm solid}
+.b7 {border-bottom: 0.7mm solid}
+.l7 {border-left: 0.7mm solid}
+.r7 {border-right: 0.7mm solid}
+
+.t8 {border-top: 0.8mm solid}
+.b8 {border-bottom: 0.8mm solid}
+.l8 {border-left: 0.8mm solid}
+.r8 {border-right: 0.8mm solid}
+
+page[size="A4"] {
+  background: white;
+  width: 297mm;
+  height: 210mm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+@media print {
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+
+
+.sidenav-container {
+  height: 100%;
+  background-color: white;
+
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar {
+  background-color: white;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.heading_nav {
+  color: black;
+
+}
+
+.icon {
+  margin-left: 33rem;
+}
+
+mat-toolbar {
+  text-transform: uppercase;
+
+  background-image: linear-gradient(-225deg,
+      #6d6e7076 50%,
+      #6d6e7076 50%,
+      #d72b2b 50%,
+      #d32b2b 50%);
+  animation: textclip 2s linear infinite;
+
+
+}
+
+

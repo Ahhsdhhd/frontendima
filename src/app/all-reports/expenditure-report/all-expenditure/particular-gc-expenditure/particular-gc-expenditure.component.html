@@ -1,0 +1,131 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="router-link-active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>REPORT</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="center"
+        />
+      </a>
+    </mat-toolbar>
+
+
+    <!-- Add Content Here -->
+ <!-- <div id="print-section" >
+    <div class="card">
+
+<div class="gcDetail"> GC NO. - &nbsp;{{ gcDetails.gcType}} {{ gcDetails.gcNumber }}&nbsp;&nbsp;</div>
+<div class="gcDetail">NAME -&nbsp; {{ gcDetails.name }}&nbsp;&nbsp;</div>
+<div class="gcDetail">Bn/CO. - &nbsp; {{gcDetails.battalion}}/{{gcDetails.company}}&nbsp;&nbsp;</div>
+<div class="gcDetail3">COUNTRY - &nbsp; {{ gcDetails.country }}&nbsp;&nbsp;</div>
+<div class="gcDetail2">STATUS -&nbsp; {{ gcDetails.status }}&nbsp;&nbsp;</div>
+    </div>
+
+
+
+
+
+    <div class="card" style="height: 40em;">
+      <table id="table">
+
+        <thead class="thead-light">
+          <tr class="col-md-12">
+            <th class="table-light">DATE</th>
+            <th class="table-light">BILL NO/DETAILS</th>
+
+            <th class="table-light">EXPENDITURE</th>
+          </tr>
+        </thead>
+
+        <tbody >
+          <tr style="border-bottom:solid" *ngFor="let Report of Report
+          | paginate : { itemsPerPage: 50, currentPage: p } ">
+            <td class="col-sm-4">{{ Report.date }}</td>
+            <td class="col-sm-4">{{ Report.billNoDetails }}</td>
+
+            <td class="col-sm-4">{{ Report.ExpenditureAmount }}</td>
+          </tr>
+        </tbody>
+
+
+
+      </table>
+      <tr>
+      &nbsp; &nbsp; <th >Total Records :- &nbsp; &nbsp;  {{total}}</th>
+    </tr>
+
+
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+    <button class="btn btn-outline-primary btn-group-lg"
+
+    [useExistingCss]="true"
+    printSectionId="print-section"
+    ngxPrint>print</button>
+     </div> -->
+     <div id="print-section" >
+      <table id="table">
+        <div class="card">
+
+          <div class="gcDetail"> GC NO. - &nbsp;{{ gcDetails.gcType}} {{ gcDetails.gcNumber }}&nbsp;&nbsp;</div>
+          <div class="gcDetail">NAME -&nbsp; {{ gcDetails.name }}&nbsp;&nbsp;</div>
+          <div class="gcDetail">Bn/CO. - &nbsp; {{gcDetails.battalion}}/{{gcDetails.company}}&nbsp;&nbsp;</div>
+          <div class="gcDetail3" style="position: absolute; top:1/7em;left:40em;text-overflow: ellipsis ; ">COUNTRY - &nbsp; <span>{{ gcDetails.country }}</span>&nbsp;&nbsp;</div>
+          <div class="gcDetail2" style="position: absolute; top:6em;left:40em;text-overflow: ellipsis; text-align: center;">STATUS -&nbsp; <span>{{gcDetails.status }}</span>&nbsp;&nbsp;</div>
+              </div>
+        <tr class="tableHead" style="background-color: url(/assets/images/watermark3.png) !important;">
+          <tr>
+            <th>DATE</th>
+            <th>BILL NO/DETAILS</th>
+
+            <th>EXPENDITURE</th>
+          </tr>
+
+
+        <tr style="border-bottom:solid" *ngFor="let Report of Report
+        | paginate : { itemsPerPage: 50, currentPage: p } ">
+          <td>{{ Report.date }}</td>
+          <td>{{ Report.billNoDetails }}</td>
+
+          <td>{{ Report.ExpenditureAmount }}</td>
+        </tr>
+      </table>
+      <td>TOTAL :- {{total}}</td>
+    </div>
+
+      <div class="d-flex justify-content-center">
+     <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+     <button class="btn btn-outline-primary btn-group-lg"
+
+     [useExistingCss]="true"
+     printSectionId="print-section"
+     ngxPrint>print</button>
+
+      </div>
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

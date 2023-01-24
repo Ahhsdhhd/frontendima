@@ -1,0 +1,91 @@
+<div fxFlex>
+  <mat-sidenav-container fxFill class="sidenav-container">
+    <mat-sidenav class="sidenav">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list> </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content >
+      <mat-toolbar color="dark">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          [routerLink]="['/menu']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon aria-label="Side nav toggle icon">home</mat-icon>
+        </button>
+        <div class="heading_nav">
+          <h3>REPORTS</h3>
+        </div>
+        <a class="icon">
+          <img
+            src="../../assets/images/ima logo.avif"
+            alt=""
+            width="50"
+            height="50"
+            class="d-inline-block align-text-center"
+          />
+        </a>
+        <div class="back_icon">
+          <button
+            class="backIcon"
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            [routerLink]="['/expenditureReport']"
+            routerLinkActive="router-link-active"
+          >
+            <mat-icon aria-label="Side nav toggle icon"
+              ><span class="material-icons">arrow_back</span></mat-icon
+            >
+          </button>
+        </div>
+
+      </mat-toolbar>
+      <!-- Add Content Here -->
+      <!---     buttons-->
+      <div id="print-section" >
+      <table id="table">
+        <tr class="tableHead">
+          <th>GC No</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Bill No/Details</th>
+          <th>Amount</th>
+
+        </tr>
+
+        <tr *ngFor="let expenditure of expenditure
+        | paginate : { itemsPerPage: 18, currentPage: p }">
+
+          <td>{{expenditure.gcType}}{{expenditure.gcNumber}}</td>
+          <td>{{expenditure.name}}</td>
+          <td>{{expenditure.date}}</td>
+          <td>{{expenditure.billNoDetails}}</td>
+          <td>{{expenditure.ExpenditureAmount}}</td>
+        </tr>
+        <tr style="border-top: solid; border-bottom: solid;">
+
+          <td class="table-light">TOTAL AMOUNT :- </td>
+          <td class="totalAmount">{{total}} </td>
+        </tr>
+
+      </table>
+    </div>
+
+      <div class="d-flex justify-content-center">
+     <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+      </div>
+
+      <button class="btn btn-outline-primary btn-group-lg"
+
+      [useExistingCss]="true"
+      printSectionId="print-section"
+      ngxPrint>print</button>
+
+
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+

@@ -1,0 +1,86 @@
+
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']"
+        routerLinkActive="active"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3>BILLING</h3>
+      </div>
+      <a class="icon">
+        <img
+          src="../../assets/images/ima logo.avif"
+          alt=""
+          width="50"
+          height="50"
+          class="d-inline-block align-text-center"
+        />
+      </a>
+      <div class="back_icon">
+        <button
+          class="backIcon"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          [routerLink]="['/expenditureReport']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon aria-label="Side nav toggle icon"
+            ><span class="material-icons">arrow_back</span></mat-icon
+          >
+        </button>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <!---     buttons-->
+
+
+    <table class="greyGridTable">
+      <thead class="thead-light">
+        <tr>
+          <th class="table-light" scope="col">S.NO</th>
+
+          <th class="table-light" scope="col">PREFIX</th>
+          <th class="table-light" scope="col">GC. NO</th>
+          <th class="table-light" scope="col">NAME</th>
+          <th class="table-light" scope="col">DATE</th>
+          <th class="table-light" scope="col">BILL NO / DETAILS</th>
+          <th class="table-light" scope="col">AMOUNT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let expenditure of expenditure
+
+              | paginate : { itemsPerPage: 10, currentPage: p };
+            let i = index
+          "
+        >
+          <td class="text_white">{{ i + 1 }}</td>
+
+          <td class="text_white">{{ expenditure.gcType }}</td>
+          <td class="text_white">{{ expenditure.gcNumber }}</td>
+          <td class="text_white">{{ expenditure.name }}</td>
+          <td class="text_white">{{ expenditure.date }}</td>
+          <td class="text_white">{{ expenditure.billNoDetails }}</td>
+
+          <td class="text_white">{{ expenditure.ExpenditureAmount }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </mat-sidenav-content>
+</mat-sidenav-container>

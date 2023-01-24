@@ -1,0 +1,112 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="dark">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        [routerLink]="['/menu']" routerLinkActive="router-link-active"
+       >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="heading_nav">
+        <h3 >REPORT</h3>
+      </div>
+      <a class="icon" >
+        <img src="../../assets/images/ima logo.avif" alt="" width="50" height="50"  class="center">
+
+      </a>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+     <!---     buttons-->
+     <div class="col-12">
+
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1" aria-expanded="false">
+     SEARCH
+      </button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active"> ALL GC</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active" >BY BATTALIONS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active" >BY COUNTRY</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active" >BY PREFIX</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active" >BY STATUS</a></li>
+          <li><a ngbDropdownItem [routerLink]="['/fullReport']" routerLinkActive="router-link-active" >FOREINGNER</a></li>
+
+        </ul>
+      </div>
+      <div ngbDropdown class="dropdown  d-inline-block">
+        <button ngbDropdownToggle class=" dropdown  btn btn-light btn-lg m-4" type="button" id="dropdownMenuButton1" aria-expanded="false">
+      EXPENDITURE REPORT
+      </button>
+      <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+        <li><a ngbDropdownItem [routerLink]="['/reports']" routerLinkActive="router-link-active" >BY DATE</a></li>
+        <li><a ngbDropdownItem [routerLink]="['/month']" routerLinkActive="router-link-active" >BY MONTH</a></li>
+        <li><a ngbDropdownItem [routerLink]="['/billNoDetails']" routerLinkActive="router-link-active" >BY BILL NO/DETAILS</a></li>
+        <li><a ngbDropdownItem [routerLink]="['/byAmount']" routerLinkActive="router-link-active" >BY AMOUNT</a></li>
+
+      </ul>
+      </div>
+
+
+    </div>
+
+    <table class="greyGridTable">
+      <thead class="thead-light">
+        <tr>
+          <th class="table-light" scope="col">S.NO</th>
+
+          <th class="table-light" scope="col">PREFIX</th>
+          <th class="table-light" scope="col">GC. NO</th>
+          <th class="table-light" scope="col">NAME</th>
+          <th class="table-light" scope="col">DATE</th>
+          <th class="table-light" scope="col">BILL NO / DETAILS</th>
+          <th class="table-light" scope="col">RECEIPT AMOUNT</th>
+          <th class="table-light" scope="col">EXPENDITURE AMOUNT</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="cursor:pointer;"
+        (click)="onClickTable(expenditure.gcNumber)"
+
+
+        *ngFor="
+            let expenditure of expenditure
+              | filter : gcNumber
+              | filter : name
+              | filter : recordNo
+              | filter : date
+              | filter : amount
+              | filter : billNoDetails
+              | filter : gcType
+              | filter : modecheque
+              | paginate : { itemsPerPage: 10, currentPage: p };
+
+            let i = index
+          "
+        >
+          <td class="text_white">{{ i + 1 }}</td>
+
+          <td class="text_white">{{ expenditure.gcType }}</td>
+          <td class="text_white">{{ expenditure.gcNumber }}</td>
+          <td class="text_white">{{ expenditure.name| uppercase}} </td>
+          <td class="text_white">{{ expenditure.date }}</td>
+          <td class="text_white">{{ expenditure.billNoDetails }}</td>
+          <td class="text_white">{{ receipt.amount }}</td>
+          <td class="text_white">{{ expenditure.ExpenditureAmount }}</td>
+
+
+
+        </tr>
+      </tbody>
+    </table>
+  </mat-sidenav-content>
+</mat-sidenav-container>
